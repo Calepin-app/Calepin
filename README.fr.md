@@ -5,7 +5,10 @@
 Analyse de relevés bancaires **100 % locale** : les transactions ne sont lues que par un LLM qui tourne
 sur la machine (LM Studio, avec le modèle de son choix). Le résultat est un rapport HTML autonome.
 
-**Vos relevés bancaires, catégorisés et mis en graphiques par une IA qui ne quitte pas votre Mac.**
+**Vos relevés bancaires, catégorisés et mis en graphiques par une IA qui ne quitte pas votre ordinateur.**
+
+**[▶ Essayer la démo en ligne](https://calepin-app.github.io/Calepin/fr.html)** : la vraie application, dans le
+navigateur, sur des relevés fictifs, avec les réponses du LLM local enregistrées à l'avance.
 
 <p align="center"><img src="docs/demo.gif" alt="Tour de Calepin : opérations, règles, catégories et rapport, sur des relevés fictifs" width="820"></p>
 

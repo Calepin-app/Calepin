@@ -1,0 +1,82 @@
+{
+ "C|PRELEVEMENT RECU - MERCI": {
+  "category": "Revenus:Other income",
+  "merchant": "Miscellaneous credit"
+ },
+ "C|VIR CPAM PARIS REMBOURSEMENT": {
+  "category": "Revenus:Benefits & allowances",
+  "merchant": "CPAM Paris"
+ },
+ "C|VIR SALAIRE ACME SAS": {
+  "category": "Revenus:Salary",
+  "merchant": "ACME SAS"
+ },
+ "D|AIR FRANCE BILLETS": {
+  "category": "Dépenses:Leisure:Travel & accommodation",
+  "merchant": "Air France"
+ },
+ "D|AMAZON EU SARL": {
+  "category": "Dépenses:Shopping",
+  "merchant": "Amazon"
+ },
+ "D|AMAZON PAYMENTS EUROPE": {
+  "category": "Dépenses:Shopping",
+  "merchant": "Amazon Payments Europe"
+ },
+ "D|AMZN DIGITAL": {
+  "category": "Dépenses:Subscriptions:Streaming & software",
+  "merchant": "Amazon Digital"
+ },
+ "D|AMZN MKTP FR*": {
+  "category": "Dépenses:Shopping",
+  "merchant": "Amazon Marketplace"
+ },
+ "D|CB CARREFOUR MARKET": {
+  "category": "Dépenses:Food:Groceries",
+  "merchant": "Carrefour Market"
+ },
+ "D|FNAC PARIS": {
+  "category": "Dépenses:Leisure:Outings & culture",
+  "merchant": "FNAC"
+ },
+ "D|PRLV SEPA AMERICAN EXPRESS": {
+  "category": "Hors budget:Internal transfers",
+  "merchant": "American Express"
+ },
+ "D|PRLV SEPA EDF CLIENTS PARTICULIERS": {
+  "category": "Dépenses:Housing:Energy & water",
+  "merchant": "EDF"
+ },
+ "D|PRLV SEPA FREE MOBILE": {
+  "category": "Dépenses:Subscriptions:Phone & internet",
+  "merchant": "Free Mobile"
+ },
+ "D|PRLV SEPA LOYER SCI DUPONT REF": {
+  "category": "Dépenses:Housing:Rent & mortgage",
+  "merchant": "SCI Dupont"
+ },
+ "D|PRLV SEPA NETFLIX.COM": {
+  "category": "Dépenses:Subscriptions:Streaming & software",
+  "merchant": "Netflix"
+ },
+ "D|RESTAURANT LE PETIT ZINC": {
+  "category": "Dépenses:Food:Restaurants & cafés",
+  "merchant": "Le Petit Zinc"
+ },
+ "D|RETRAIT DAB PARIS": {
+  "category": "Dépenses:Cash withdrawals",
+  "merchant": "ATM Paris"
+ },
+ "D|SNCF VOYAGEURS": {
+  "category": "Dépenses:Transport:Train",
+  "merchant": "SNCF"
+ },
+ "D|SPOTIFY STOCKHOLM": {
+  "category": "Dépenses:Subscriptions:Streaming & software",
+  "merchant": "Spotify"
+ },
+ "D|UBER EATS PARIS": {
+  "category": "Dépenses:Food:Food delivery",
+  "merchant": "Uber Eats"
+ }
+}

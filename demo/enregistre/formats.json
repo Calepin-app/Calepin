@@ -1,0 +1,32 @@
+{
+  "bdfc638fae4cf8bd": {
+    "header_line": 8,
+    "delimiter": ";",
+    "date_column": "Date",
+    "date_format": "%d/%m/%Y",
+    "label_columns": [
+      "Libellé"
+    ],
+    "amount_column": null,
+    "debit_column": "Débit euros",
+    "credit_column": "Crédit euros",
+    "decimal_comma": true,
+    "fingerprint": "bdfc638fae4cf8bd",
+    "name": "n°1"
+  },
+  "b65b2b53bbada52b": {
+    "header_line": 0,
+    "delimiter": ",",
+    "date_column": "Date",
+    "date_format": "%d/%m/%Y",
+    "label_columns": [
+      "Description"
+    ],
+    "amount_column": "Montant",
+    "debit_column": null,
+    "credit_column": null,
+    "decimal_comma": true,
+    "fingerprint": "b65b2b53bbada52b",
+    "name": "n°2"
+  }
+}

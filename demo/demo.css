@@ -1,0 +1,6 @@
+/* Démo en ligne : bandeau d'explication, attente du démarrage, boutons qui demandent un LLM local masqués */
+#demobar{background:var(--accent);color:#fff;font-size:13px;padding:8px 16px;text-align:center}
+#demobar a{color:#fff;font-weight:600;white-space:nowrap}
+#demowait{position:fixed;inset:auto 16px 16px;margin:0 auto;max-width:520px;z-index:60;background:var(--ink);color:var(--page);
+  border-radius:10px;padding:12px 16px;font-size:13px;box-shadow:0 6px 20px #0004}
+#bImport,#bFolder,#model{display:none!important}

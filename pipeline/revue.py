@@ -228,21 +228,12 @@ def transfer_pairs(tx):
     return ids
 
 
-class Handler(BaseHTTPRequestHandler):
+class Routes:
+    """Réponses aux requêtes de la page, indépendantes du transport : le serveur local (Handler) ou la
+    démo en ligne (demo/, le même code exécuté dans le navigateur). Fournir path, state et send()."""
     state: State = None
 
-    def log_message(self, *a):
-        pass
-
-    def send(self, body, ctype="application/json", code=200):
-        b = body.encode() if isinstance(body, str) else body
-        self.send_response(code)
-        self.send_header("Content-Type", ctype + "; charset=utf-8")
-        self.send_header("Content-Length", str(len(b)))
-        self.end_headers()
-        self.wfile.write(b)
-
-    def do_GET(self):
+    def route_get(self):
         if self.path == "/":
             self.send(render_page(), "text/html")
         elif self.path == "/api/data":
@@ -260,8 +251,7 @@ class Handler(BaseHTTPRequestHandler):
         else:
             self.send("{}", code=404)
 
-    def do_POST(self):
-        req = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))) or b"{}")
+    def route_post(self, req):
         if self.path == "/api/import":
             return self.send(json.dumps({"ok": Import.start()}))
         if self.path == "/api/dossier/parcourir":
@@ -371,6 +361,25 @@ class Handler(BaseHTTPRequestHandler):
             self.send('{"ok": false}', code=400)
             return
         self.send('{"ok": true}')
+
+
+class Handler(Routes, BaseHTTPRequestHandler):
+    def log_message(self, *a):
+        pass
+
+    def send(self, body, ctype="application/json", code=200):
+        b = body.encode() if isinstance(body, str) else body
+        self.send_response(code)
+        self.send_header("Content-Type", ctype + "; charset=utf-8")
+        self.send_header("Content-Length", str(len(b)))
+        self.end_headers()
+        self.wfile.write(b)
+
+    def do_GET(self):
+        self.route_get()
+
+    def do_POST(self):
+        self.route_post(json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0))) or b"{}"))
 
 
 PAGE = r"""<!doctype html><html lang="{{lang}}"><head><meta charset="utf-8">

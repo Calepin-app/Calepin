@@ -1,0 +1,4 @@
+# pattern;category   (one rule per line; pattern searched in the label, case-insensitive)
+# category: full path (Expenses:Leisure:Sport) or name alone if unique (Sport)
+# Example:
+# NETFLIX;Streaming & software

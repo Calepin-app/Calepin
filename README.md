@@ -4,6 +4,9 @@
 
 **Your bank statements, categorized and charted by an AI that never leaves your computer.**
 
+**[▶ Try the online demo](https://calepin-app.github.io/Calepin/)**: the real app running in your browser on made-up
+statements, with the local LLM's answers recorded in advance.
+
 Drop your CSV exports in a folder. A local LLM works out each bank's format, files every transaction
 into your own category tree, and you get a clean report of where your money goes. No cloud, no
 account, no bank connection: the model runs on your machine (LM Studio, with the model of your choice) and your

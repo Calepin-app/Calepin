@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./data/**)",
+      "Read(./private/**)",
+      "Edit(./data/**)",
+      "Edit(./private/**)",
+      "Bash(cat data/*)", "Bash(cat private/*)",
+      "Bash(head data/*)", "Bash(head private/*)",
+      "Bash(tail data/*)", "Bash(tail private/*)",
+      "Bash(less data/*)", "Bash(less private/*)",
+      "Bash(grep * data/*)", "Bash(grep * private/*)"
+    ]
+  }
+}

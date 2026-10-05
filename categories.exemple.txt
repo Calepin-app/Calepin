@@ -1,0 +1,71 @@
+# Arborescence des catégories (à la GnuCash). Deux espaces d'indentation = sous-catégorie.
+# Profondeur libre. Les trois racines Revenus / Dépenses / Hors budget sont obligatoires.
+# Actif / Passif (facultatives) : flux qui constituent ou réduisent le patrimoine, hors budget.
+# Pas de « : » dans les noms (séparateur des chemins, ex. Dépenses:Logement:Énergie & eau).
+# Modèle copié dans private/categories.txt au premier lancement ; c'est ce dernier qui est utilisé.
+
+Revenus
+  Salaire
+  Allocations & aides
+  Autres revenus
+
+Dépenses
+  Logement
+    Loyer & crédit immobilier
+    Charges & copropriété
+    Énergie & eau
+    Travaux & entretien
+    Assurance habitation
+  Alimentation
+    Courses
+    Restaurants & cafés
+    Livraison de repas
+  Transports
+    Carburant
+    Transports en commun
+    Taxi & VTC
+    Train
+    Entretien véhicule
+    Parking & péages
+    Assurance auto
+  Santé
+    Médecin & pharmacie
+    Mutuelle
+  Abonnements
+    Téléphone & internet
+    Streaming & logiciels
+    Presse
+  Loisirs
+    Sorties & culture
+    Sport
+    Voyages & hébergement
+    Hobbies
+  Achats
+    Vêtements
+    High-tech
+    Maison & déco
+    Cadeaux
+  Famille
+    Enfants & garde
+    Éducation
+    Animaux
+  Finances
+    Impôts & taxes
+    Frais bancaires
+    Crédit conso
+    Autres assurances
+    Dons
+  Retraits espèces
+  Divers
+
+Actif
+  Épargne & placements
+  Immobilier
+  Prêts accordés
+
+Passif
+  Emprunt immobilier
+  Autres emprunts
+
+Hors budget
+  Transferts internes

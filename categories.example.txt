@@ -1,0 +1,71 @@
+# Category tree (GnuCash style). Two spaces of indentation = subcategory. Any depth.
+# Required roots: Income / Expenses / Off-budget.
+# Optional roots: Assets / Liabilities: flows that build or reduce net worth, outside the budget.
+# No « : » in names (it separates paths, e.g. Expenses:Housing:Energy & water).
+# Template copied to <data folder>/travail/categories.txt on first launch; that copy is the one used.
+
+Income
+  Salary
+  Benefits & allowances
+  Other income
+
+Expenses
+  Housing
+    Rent & mortgage
+    Service charges
+    Energy & water
+    Repairs & maintenance
+    Home insurance
+  Food
+    Groceries
+    Restaurants & cafés
+    Food delivery
+  Transport
+    Fuel
+    Public transport
+    Taxi & ride-hailing
+    Train
+    Vehicle maintenance
+    Parking & tolls
+    Car insurance
+  Health
+    Doctor & pharmacy
+    Health insurance
+  Subscriptions
+    Phone & internet
+    Streaming & software
+    News
+  Leisure
+    Outings & culture
+    Sport
+    Travel & accommodation
+    Hobbies
+  Shopping
+    Clothing
+    Electronics
+    Home & decor
+    Gifts
+  Family
+    Children & childcare
+    Education
+    Pets
+  Finance
+    Taxes
+    Bank fees
+    Consumer credit
+    Other insurance
+    Donations
+  Cash withdrawals
+  Miscellaneous
+
+Assets
+  Savings & investments
+  Property
+  Loans granted
+
+Liabilities
+  Mortgage
+  Other loans
+
+Off-budget
+  Internal transfers

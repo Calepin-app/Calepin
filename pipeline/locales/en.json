@@ -62,6 +62,7 @@
  "rep.category": "Category",
  "rep.cumulative": "Cumulative balance",
  "rep.detail": "Detail by category and month",
+ "rep.detail_sign": "Assets, liabilities and off-budget: net amount paid out of the accounts (negative: received).",
  "rep.detail_sub": "Show large subcategories separately",
  "rep.expenses": "Expenses",
  "rep.flow": "Flows by category",

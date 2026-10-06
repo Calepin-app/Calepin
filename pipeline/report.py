@@ -210,7 +210,8 @@ def category_tree(a, branch, flow=None):
 def cat_table(a):
     months = a["months"]
     head = "".join(f"<th>{mlabel(m, True)}{'*' if m in a['partial'] else ''}</th>" for m in months)
-    rows = tree_lines(a, SPENDING, 2)[1:] + tree_lines(a, INCOME, 1)
+    rows = (tree_lines(a, SPENDING, 2)[1:] + tree_lines(a, INCOME, 1)
+            + [x for b in (ASSET, LIABILITY, OFF_BUDGET) for x in tree_lines(a, b, 1)])
     maxv = max([a["nodes"][p].get(m, 0) for p, d in rows if d == 2 for m in months] + [1])
     body = []
     for p, d in rows:
@@ -316,7 +317,7 @@ def render(a, comment, generated):
 <section><h2>{tr("rep.recurring")}</h2>{recurring_table(a)}</section>
 {rises_block(a)}
 <section><h2>{tr("rep.top")}</h2><p class='muted small'>{tr("rep.top_note")}</p>{top_table(a)}</section>
-<section class="long"><h2>{tr("rep.detail")}</h2><p class="muted small">{tr("rep.partial_star")}</p>{cat_table(a)}</section>
+<section class="long"><h2>{tr("rep.detail")}</h2><p class="muted small">{tr("rep.partial_star")} {tr("rep.detail_sign")}</p>{cat_table(a)}</section>
 <footer class="muted small">{tr("rep.footer", n=a['n_excluded'], branch=lab(OFF_BUDGET))}{tr("rep.footer_wealth", n=a['n_wealth']) if a['n_wealth'] else ""}.</footer>
 <script>
 // « Ramener au mois » : moyennes mensuelles (coché) ou totaux de la période ; choix mémorisé

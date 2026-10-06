@@ -62,6 +62,7 @@
  "rep.category": "Catégorie",
  "rep.cumulative": "Solde cumulé",
  "rep.detail": "Détail par catégorie et par mois",
+ "rep.detail_sign": "Actif, passif et hors budget : montant net versé depuis les comptes (négatif : reçu).",
  "rep.detail_sub": "Détailler les sous-catégories importantes",
  "rep.expenses": "Dépenses",
  "rep.flow": "Flux par catégorie",

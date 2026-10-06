@@ -8,7 +8,7 @@ from datetime import timedelta
 from statistics import mean, median
 
 from i18n import money, tr
-from taxonomy import BUDGET, INCOME, SPENDING, WEALTH, ancestors, depth, leaf, load, root
+from taxonomy import BUDGET, INCOME, OFF_BUDGET, SPENDING, WEALTH, ancestors, depth, leaf, load, root
 
 
 def month(d):
@@ -20,14 +20,15 @@ def analyze(tx, span=None):
     tax = load()
     real = [t for t in tx if root(t["category"]) in BUDGET]
     wealth = [t for t in tx if root(t["category"]) in WEALTH]
+    off = [t for t in tx if root(t["category"]) == OFF_BUDGET]  # seulement pour le tableau détaillé
     months = sorted({month(t["date"]) for t in tx})
     first, last = span or (min(t["date"] for t in tx), max(t["date"] for t in tx))
     partial = partial_months(first, last)
     full = [m for m in months if m not in partial] or months
 
     nodes = defaultdict(lambda: defaultdict(float))
-    # Dépenses, Actif et Passif sont comptés en argent sorti des comptes (positif = versé)
-    for t in real + wealth:
+    # Dépenses, Actif, Passif et Hors budget sont comptés en argent sorti des comptes (positif = versé)
+    for t in real + wealth + off:
         v = t["amount"] if root(t["category"]) == INCOME else -t["amount"]
         for p in ancestors(t["category"]):
             nodes[p][month(t["date"])] += v

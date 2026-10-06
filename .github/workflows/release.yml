@@ -1,0 +1,20 @@
+# Paquet d'installation : pousser un tag (git tag v0.2.0 && git push --tags) publie une version GitHub
+# avec Calepin-v0.2.0.zip ; le texte de la version vient de .github/release-notes.md.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 .github/pack.py "Calepin-${GITHUB_REF_NAME}.zip"
+      - run: gh release create "$GITHUB_REF_NAME" "Calepin-${GITHUB_REF_NAME}.zip" --title "Calepin ${GITHUB_REF_NAME#v}" --notes-file .github/release-notes.md
+        env:
+          GH_TOKEN: ${{ github.token }}

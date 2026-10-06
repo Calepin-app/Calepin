@@ -9,6 +9,7 @@ sur la machine (LM Studio, avec le modèle de son choix). Le résultat est un ra
 
 **[▶ Essayer la démo en ligne](https://calepin-app.github.io/Calepin/fr.html)** : la vraie application, dans le
 navigateur, sur des relevés fictifs, avec les réponses du LLM local enregistrées à l'avance.
+**[⬇ L'installer](#installation)** : sans connaissances en programmation.
 
 <p align="center"><img src="docs/demo.gif" alt="Tour de Calepin : opérations, règles, catégories et rapport, sur des relevés fictifs" width="820"></p>
 
@@ -45,28 +46,63 @@ LLM. L'arborescence peut avoir des racines françaises (Revenus, Dépenses…) o
 Expenses…) : au premier lancement, le modèle `categories.exemple.txt` ou `categories.example.txt` est
 copié selon la langue.
 
-## Prérequis
+## Installation
 
-- Python 3.9+ (bibliothèque standard uniquement)
-- [LM Studio](https://lmstudio.ai) avec au moins un modèle de conversation qui suit bien les consignes
-  et gère la sortie structurée ; développé avec `mistralai/mistral-small-3.2` (~13,5 Go). Un modèle
-  plus petit va plus vite mais catégorise moins bien.
+Aucune connaissance en programmation nécessaire : trois téléchargements gratuits, environ 15 minutes
+(surtout l'attente du modèle).
+
+**1. LM Studio, l'application qui fait tourner l'IA sur votre ordinateur.**
+La télécharger sur [lmstudio.ai](https://lmstudio.ai), l'installer et l'ouvrir une fois. Dans son
+onglet **Discover** (loupe), chercher `mistral small 3.2` et le télécharger (~13,5 Go ; idéalement
+24 Go de mémoire ou plus). Avec 16 Go, choisir plutôt un modèle plus petit (7 à 8 milliards de
+paramètres) : plus rapide, mais il se trompe davantage. LM Studio peut ensuite rester fermé :
+Calepin le démarre quand il en a besoin.
+
+**2. Python, le langage dans lequel Calepin est écrit.**
+- **macOS** : télécharger l'installeur sur [python.org](https://www.python.org/downloads/) et le lancer.
+- **Windows** : idem, en cochant **« Add python.exe to PATH »** sur le premier écran de l'installeur.
+- **Linux** : en général déjà présent (`python3 --version` doit afficher 3.9 ou plus).
+
+**3. Calepin.**
+Télécharger **`Calepin-….zip`** depuis la [dernière version](https://github.com/Calepin-app/Calepin/releases/latest), le décompresser où l'on veut
+(par exemple dans Documents), puis ouvrir le lanceur :
+
+| Système | Lanceur |
+|---|---|
+| macOS | double-clic sur **`Calepin.command`** |
+| Windows | double-clic sur **`Calepin.bat`** |
+| Linux | **`./calepin.sh`** |
+
+La première fois sur macOS, le système peut refuser d'ouvrir un fichier téléchargé : ouvrir
+**Réglages Système → Confidentialité et sécurité**, descendre et cliquer sur **Ouvrir quand même**
+(sur les anciens macOS : clic droit sur le lanceur → Ouvrir). Sous Windows, SmartScreen peut afficher
+« Windows a protégé votre ordinateur » : cliquer sur **Informations complémentaires → Exécuter quand même**.
+
+Calepin s'ouvre dans le navigateur. Commencer par **📁 Dossier des données → Essayer avec des relevés
+fictifs**, cliquer sur **⟳ Mettre à jour** et explorer. Ensuite, désigner par 📁 son propre dossier
+et déposer les exports CSV de ses banques dans son sous-dossier `data/`.
+
+<details><summary>Plus de détails sur les modèles et les prérequis</summary>
+
+- Tout modèle de conversation qui suit bien les consignes et gère la sortie structurée convient ;
+  développé avec `mistralai/mistral-small-3.2`.
 - Plusieurs modèles installés : choisir dans la liste en haut de la page (● = chargé en mémoire) ;
   un seul modèle, ou un seul chargé, est pris d'office. `BANQUE_LLM_MODEL` impose un modèle.
-- Le script démarre le serveur LM Studio (`lms server start`) s'il ne tourne pas ; le modèle se
+- Calepin démarre le serveur LM Studio (`lms server start`) s'il ne tourne pas ; le modèle se
   charge à la première requête et se décharge après 1 h d'inactivité.
+- Python 3.9+, bibliothèque standard uniquement : rien d'autre à installer.
+- **Mise à jour** : télécharger le nouveau zip et le décompresser par-dessus l'ancien dossier (ou dans un
+  nouveau, puis y déplacer `.banque.json` et, s'il y est resté, le dossier de données `private/`). Relevés
+  et corrections vivent dans le dossier des données, jamais dans les fichiers de Calepin.
+- Les développeurs peuvent aussi faire un `git clone` du dépôt au lieu de télécharger le zip.
+
+</details>
 
 ## Utilisation
 
 Lancer Calepin avec le lanceur de son système : la page s'ouvre dans le navigateur (ou se rouvre si
 Calepin tourne déjà). La fenêtre de terminal fait tourner l'application : la fermer (ou Ctrl+C) pour
 l'arrêter.
-
-| Système | Lanceur |
-|---|---|
-| macOS | double-clic sur **`Calepin.command`** (la première fois : clic droit → Ouvrir) |
-| Windows | double-clic sur **`Calepin.bat`** |
-| Linux | **`./calepin.sh`** |
 
 **Essayer d'abord avec des relevés fictifs** : 📁 Dossier des données → **Essayer avec des relevés
 fictifs** crée `~/Calepin demo` avec quelques exports inventés (deux formats, deux comptes), puis
@@ -184,7 +220,7 @@ ne va pas. Le LLM local voit les libellés concernés et propose des actions, ch
   (`travail/consignes.txt`).
 
 Tout ce qui a été retenu est listé dans « Mémoire », avec un bouton Oublier. Compter 1 à 3 min par
-réponse sur un MacBook Air M3.
+réponse sur un Mac Apple Silicon.
 
 Priorité : opération corrigée > libellé corrigé > `corrections.csv` > LLM. Les corrections manuelles
 ne sont jamais écrasées, même par `--affiner`. Stockage : `travail/categories.json` (libellés,

@@ -5,7 +5,7 @@
 **Your bank statements, categorized and charted by an AI that never leaves your computer.**
 
 **[▶ Try the online demo](https://calepin-app.github.io/Calepin/)**: the real app running in your browser on made-up
-statements, with the local LLM's answers recorded in advance.
+statements, with the local LLM's answers recorded in advance. **[⬇ Install it](#install)**: no coding needed.
 
 Drop your CSV exports in a folder. A local LLM works out each bank's format, files every transaction
 into your own category tree, and you get a clean report of where your money goes. No cloud, no
@@ -69,32 +69,66 @@ macOS language. It applies to the page, the report, the console and the LLM prom
 tree can use English roots (Income, Expenses…) or French ones (Revenus, Dépenses…); on first launch
 `categories.example.txt` or `categories.exemple.txt` is copied, depending on the language.
 
-## Requirements
+## Install
 
-- Python 3.9+ (standard library only), on macOS, Windows or Linux
-- [LM Studio](https://lmstudio.ai) with at least one chat model. Any model that follows instructions
-  and supports structured output works; developed with `mistralai/mistral-small-3.2` (~13.5 GB: MLX
-  build on Apple Silicon, GGUF elsewhere; 24 GB of RAM recommended, a GPU helps a lot on
-  Windows/Linux). Smaller models are faster but categorize less well.
+No programming needed: three free downloads, about 15 minutes (mostly waiting for the model).
+
+**1. LM Studio, the app that runs the AI on your computer.**
+Download it from [lmstudio.ai](https://lmstudio.ai), install it and open it once. In its
+**Discover** tab (magnifying glass), search for `mistral small 3.2` and download it (~13.5 GB;
+best with 24 GB of memory or more). On a computer with 16 GB, pick a smaller model instead
+(7 to 8 billion parameters): faster, but it makes more mistakes. You can leave LM Studio closed
+afterwards; Calepin starts it when needed.
+
+**2. Python, the language Calepin is written in.**
+- **macOS**: download the installer from [python.org](https://www.python.org/downloads/) and run it.
+- **Windows**: same, and tick **« Add python.exe to PATH »** on the installer's first screen.
+- **Linux**: usually already installed (`python3 --version` should print 3.9 or later).
+
+**3. Calepin.**
+Download **`Calepin-….zip`** from the [latest release](https://github.com/Calepin-app/Calepin/releases/latest), unzip it where you like (for
+example in Documents), then open the launcher:
+
+| System | Launcher |
+|---|---|
+| macOS | double-click **`Calepin.command`** |
+| Windows | double-click **`Calepin.bat`** |
+| Linux | run **`./calepin.sh`** |
+
+The first time on macOS, the system may refuse to open a file downloaded from the internet: open
+**System Settings → Privacy & Security**, scroll down and click **Open Anyway** (on older macOS:
+right-click the launcher → Open). On Windows, SmartScreen may show « Windows protected your PC »:
+click **More info → Run anyway**.
+
+Calepin opens in your browser. Start with **📁 Data folder → Try with sample statements**, click
+**⟳ Update**, and explore. When you are ready, point 📁 Data folder at a folder of your own and put
+your banks' CSV exports in its `data/` subfolder.
+
+<details><summary>More about models and requirements</summary>
+
+- Any chat model that follows instructions and supports structured output works; developed with
+  `mistralai/mistral-small-3.2` (MLX build on Apple Silicon, GGUF elsewhere; a GPU helps a lot on
+  Windows/Linux).
 - If several models are installed, pick one in the model list at the top of the page (● = loaded in
   memory); with a single model, or a single loaded one, Calepin uses it. `BANQUE_LLM_MODEL` forces a
   model (e.g. for `run.py` in a scheduler).
 - Calepin starts the LM Studio server (`lms server start`) if needed; the model loads on the first
   request and unloads after 1 h of inactivity.
+- Python 3.9+, standard library only: nothing else to install.
+- **Updating**: download the new zip and unzip it over the old folder (or into a new one, then move
+  `.banque.json` and, if you kept it there, the `private/` data folder across). Your statements and
+  corrections live in the data folder, never in Calepin's own files.
+- Developers can also `git clone` the repository instead of downloading the zip.
 
-Developed and tested on macOS (MacBook Air M3); the Windows and Linux launchers are provided but have
+</details>
+
+Developed and tested on an Apple Silicon Mac; the Windows and Linux launchers are provided but have
 not been tested yet.
 
 ## Usage
 
 Start Calepin with the launcher for your system; it opens the page in your browser (or reopens it if
 Calepin is already running). The terminal window runs the app: close it, or Ctrl+C, to stop it.
-
-| System | Launcher |
-|---|---|
-| macOS | double-click **`Calepin.command`** (first time: right-click → Open) |
-| Windows | double-click **`Calepin.bat`** |
-| Linux | run **`./calepin.sh`** |
 
 **Try it first with made-up statements**: 📁 Data folder → **Try with sample statements** creates
 `~/Calepin demo` with a few fictitious exports (two formats, two accounts), then click ⟳ Update.
@@ -150,7 +184,7 @@ categorization. Matching labels show while you type.
 
 **Assistant**: describe what is wrong in plain language; the local LLM proposes actions (group,
 categorize, create a category, remember an instruction), each with a preview and an Apply button.
-1 to 3 min per answer on a MacBook Air M3.
+1 to 3 min per answer on an Apple Silicon Mac.
 
 Priority: corrected transaction > corrected label > pattern rules > LLM. Manual corrections are never
 overwritten.

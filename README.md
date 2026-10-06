@@ -81,8 +81,10 @@ best with 24 GB of memory or more). On a computer with 16 GB, pick a smaller mod
 afterwards; Calepin starts it when needed.
 
 **2. Python, the language Calepin is written in.**
-- **macOS**: download the installer from [python.org](https://www.python.org/downloads/) and run it.
-- **Windows**: same, and tick **« Add python.exe to PATH »** on the installer's first screen.
+- **macOS**: usually nothing to do. If Python is missing, the first launch of Calepin makes macOS offer
+  to install its « command line developer tools » (free, from Apple): accept, then open the launcher
+  again. Alternatively, install Python from [python.org](https://www.python.org/downloads/).
+- **Windows**: download the installer from [python.org](https://www.python.org/downloads/), and tick **« Add python.exe to PATH »** on the installer's first screen.
 - **Linux**: usually already installed (`python3 --version` should print 3.9 or later).
 
 **3. Calepin.**

@@ -59,8 +59,10 @@ paramètres) : plus rapide, mais il se trompe davantage. LM Studio peut ensuite 
 Calepin le démarre quand il en a besoin.
 
 **2. Python, le langage dans lequel Calepin est écrit.**
-- **macOS** : télécharger l'installeur sur [python.org](https://www.python.org/downloads/) et le lancer.
-- **Windows** : idem, en cochant **« Add python.exe to PATH »** sur le premier écran de l'installeur.
+- **macOS** : en général rien à faire. S'il manque, au premier lancement de Calepin, macOS propose
+  d'installer ses « outils de développement en ligne de commande » (gratuits, fournis par Apple) :
+  accepter, puis rouvrir le lanceur. Sinon, installer Python depuis [python.org](https://www.python.org/downloads/).
+- **Windows** : télécharger l'installeur sur [python.org](https://www.python.org/downloads/), en cochant **« Add python.exe to PATH »** sur le premier écran de l'installeur.
 - **Linux** : en général déjà présent (`python3 --version` doit afficher 3.9 ou plus).
 
 **3. Calepin.**
